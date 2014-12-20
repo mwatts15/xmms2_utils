@@ -1,6 +1,6 @@
 # Xmms2Utils
 
-TODO: Write a gem description
+This is a set of utilites for working with the ruby bindings for the XMMS2 client library.
 
 ## Installation
 
@@ -17,15 +17,3 @@ And then execute:
 Or install it yourself as:
 
     $ gem install xmms2_utils
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/xmms2_utils/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
