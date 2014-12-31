@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = Xmms2Utils::VERSION
   spec.authors       = ["Mark Watts"]
   spec.email         = ["wattsmark2015@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A set of utilites for working with the ruby bindings for the XMMS2 client library.}
+  #spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = "MPL-2.0"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
