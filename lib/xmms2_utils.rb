@@ -77,15 +77,17 @@ module Xmms
         def extract_medialib_info(id, *fields)
             infos = self.medialib_get_info(id).wait.value
             res = Hash.new
-            fields = fields.map! {|f| f.to_sym }
-            fields.each do |field|
-                values = infos[field]
-                if not values.nil?
-                    my_value = values.first[1] # actual value from the top source [0]
-                    if field == :url
-                        my_value = Xmms::decode_xmms2_url(my_value)
+            if !infos.nil?
+                fields = fields.map! {|f| f.to_sym }
+                fields.each do |field|
+                    values = infos[field]
+                    if not values.nil?
+                        my_value = values.first[1] # actual value from the top source [0]
+                        if field == :url
+                            my_value = Xmms::decode_xmms2_url(my_value)
+                        end
+                        res[field] = my_value.to_s.force_encoding("utf-8")
                     end
-                    res[field] = my_value.to_s.force_encoding("utf-8")
                 end
             end
             res
