@@ -6,6 +6,40 @@ module Xmms
         URI.decode_www_form_component(url)
     end
 
+    def self.encode_xmms2_url(url, *args)
+        # adapted from the xmmsv lib because it's lacking in the ruby api
+        res = StringIO.new("")
+        hex = "0123456789abcdefg"
+        url.each_byte do |a|
+            good_char = ((((a) >= 'a'.ord) && ((a) <= 'z'.ord)) || \
+             (((a) >= 'A'.ord) && ((a) <= 'Z'.ord)) || \
+             (((a) >= '0'.ord) && ((a) <= '9'.ord)) || \
+             ((a) == ':'.ord) || \
+             ((a) == '/'.ord) || \
+             ((a) == '-'.ord) || \
+             ((a) == '.'.ord) || \
+             ((a) == '_'.ord))
+            if good_char
+                res << a.chr
+            elsif a == ' '.ord
+                res << '+'
+            else
+                res << '%';
+                res << hex[((a & 0xf0) >> 4)];
+                res << hex[(a & 0x0f)];
+            end
+        end
+        if !args.empty?
+            res << "?"
+        end
+        args.each do |key, value|
+            res[j] = (i == 0) ? '?' : '&';
+            res << key + "=" + value
+        end
+        puts(res.string)
+        res.string
+    end
+
     # Creates a new XMMS2 client and connects it to the server
     def self.client(name)
         xc = Xmms::Client.new(name)
