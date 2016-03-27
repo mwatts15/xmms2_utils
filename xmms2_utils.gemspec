@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Mark Watts"]
   spec.email         = ["wattsmark2015@gmail.com"]
   spec.summary       = %q{A set of utilites for working with the ruby bindings for the XMMS2 client library.}
-  #spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.description   = File.new("./README.md").read()
+  spec.homepage      = "http://github.com/mwatts15/xmm2_utils"
   spec.license       = "MPL-2.0"
 
   spec.files         = `git ls-files -z`.split("\x0")
