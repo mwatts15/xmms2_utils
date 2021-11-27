@@ -36,7 +36,6 @@ module Xmms
             res[j] = (i == 0) ? '?' : '&';
             res << key + "=" + value
         end
-        puts(res.string)
         res.string
     end
 
@@ -116,7 +115,7 @@ module Xmms
                 fields.each do |field|
                     values = infos[field]
                     if not values.nil?
-                        my_value = values.first[1] # actual value from the top source [0]
+                        my_value = values.first[1]
                         if field == :url
                             my_value = Xmms::decode_xmms2_url(my_value)
                         end
